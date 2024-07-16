@@ -234,8 +234,8 @@ Connect-LiquitWorkspace -URI "$url" -Credential $credentials
 
 # Set variables
 $destinationFolder = "C:\Temp\Liquit\"
-$container_url = "https://liquittest.blob.core.windows.net/donny/"
-$sas_token = "?sp=r&st=2023-09-12T12:32:17Z&se=2024-12-31T21:32:17Z&spr=https&sv=2022-11-02&sr=c&sig=aXytwCCbXLSxzIdNO9m%2Ff7eqiuSBan5dOV5pPYByWUU%3D"
+$container_url = "<Azure Blob Storage URL>"
+$sas_token = "<Azure Blob Storage SAS Token>"
 
 $container = "Automation/"
 $AppVPackageFilename = "XCP-ng Center.appv"
@@ -254,11 +254,11 @@ $logouturi = "https://login.microsoftonline.com/"+$tenantid+"/oauth2/logout?post
 $authorizationUri = "https://login.microsoftonline.com/"+$tenantid+"/oauth2/authorize"
 $tokenUri = "https://login.microsoftonline.com/"+$tenantid+"/oauth2/token"
 
-# Set NEW LiquitIdentitySource (AzureAD) and update
+# Set NEW Liquit IdentitySource (AzureAD) and update
 New-LiquitIdentitySource -Type azuread -Methods Federated,Login -Name $entraname -DisplayName $entraname -AzurePhotos Enabled -AzureWriteMode Disabled -Delta $true -AuthorizationUri $authorizationUri -ClientId $clientid -ClientSecret $clientsecret -IncludeNonSecurityGroups $false -RedirectUriMethod Request -UseClientIdAsResource $true -LogoutUri $logouturi -TokenUri $tokenUri
 Get-LiquitIdentitySource -Name $entraname | Update-LiquitIdentitySource
  
-# Hide LOCAL LiquitIdentitySource
+# Hide LOCAL Liquit IdentitySource
 Get-LiquitIdentitySource -ID 00000000-0000-0000-0000-000000000000 | Set-LiquitIdentitySource -Hidden $true
 
 # Create folder C:\Temp\Liquit 
@@ -277,8 +277,8 @@ New-LiquitConnector -Name 'Auto-LiquitSetupStore' -Type 'liquitsetupstore' -Meth
 New-LiquitConnector -Name 'Manual-LiquitSetupStore' -Type 'liquitsetupstore' -Method 'Ondemand' -PackageType 'Managed' -Prefix 'LSSM-' -Enabled $true -Settings @{types =  'install','portable','shortcut'; shortcuts = 'true'; filters = 'true'; uninstall = 'true'; shortcutKinds = 'Launch','help'; languages = '2','3'; platforms = '2','3','5','6'}
  
 # Create Liquit Workspace Connectors
-New-LiquitConnector -Name 'Demo Workspace' -Type 'liquitworkspace' -Method 'Ondemand' -PackageType 'Managed' -Prefix 'DEMO-' -Enabled $true -Settings @{url = 'https://demo.liquit.com'; username = 'local\connector'; password = 'connector'}
-New-LiquitConnector -Name 'Don Workspace' -Type 'liquitworkspace' -Method 'Ondemand' -PackageType 'Managed' -Prefix 'DON-' -Enabled $true -Settings @{url = 'https://donnyvanderlinde.liquit.com'; username = 'local\Automation'; password = 'P@$$W0rd!'}
+New-LiquitConnector -Name 'Demo Workspace' -Type 'liquitworkspace' -Method 'Ondemand' -PackageType 'Managed' -Prefix 'DEMO-' -Enabled $true -Settings @{url = 'https://demo.liquit.com'; username = '<Account>'; password = '<Password>'}
+New-LiquitConnector -Name 'Don Workspace' -Type 'liquitworkspace' -Method 'Ondemand' -PackageType 'Managed' -Prefix 'DON-' -Enabled $true -Settings @{url = 'https://donnyvanderlinde.liquit.com'; username = '<Account>'; password = '<Password>'}
   
 
 # Create Scheduled Tasks
