@@ -1,7 +1,7 @@
-3##################################################################################
+##################################################################################
 # Azure Automation Runbook for exporting License Usage Information with Liquit   #
 # Workspace PowerShell Module and sending it to an Azure storage account         #
-#          																		 #
+#          							                 #
 # Created by Don van der Linde                                                   #
 ##################################################################################
 
