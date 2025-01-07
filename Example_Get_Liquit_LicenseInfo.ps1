@@ -17,7 +17,7 @@ $KeyVaultSecretPwd = "<my-keyvault-secret-name>"
 $KeyVaultSecretUsr = "<my-keyvault-secret-name>"
 $KeyVaultSecretUrl = "<my-keyvault-secret-name>"
 
-# Prvevent inherit an AzContext in your runbook
+# Prevent inherit an AzContext in your runbook
 Disable-AzContextAutosave -Scope Process | Out-Null
 
 # Retrieving credentials with Azure Key Vault
