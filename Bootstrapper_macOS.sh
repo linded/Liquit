@@ -12,7 +12,7 @@
 destinationFolder="/tmp/ApplicationWorkspace/"
 bootstrapper_download_url="https://download.liquit.com/extra/Bootstrapper/"
 container_url="https://liquittest.blob.core.windows.net/donny/"
-sas_token="?sp=r&st=2025-01-08T15:36:45Z&se=2027-12-31T23:36:45Z&spr=https&sv=2022-11-02&sr=c&sig=wqOcdqqZtU6znPHXj6YPduXjUDyZmadZnkf0iJSoYLM%3D"
+sas_token="<my-sas-token>"
 
 container="macOS/"
 strapper="AgentBootstrapper-Mac-2.1.0.2"
